@@ -1,0 +1,229 @@
+<!-- Replace your current About section with this block -->
+<section class="about-section">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+    :root{
+      --accent: #00c2ff;
+      --muted: #6b7280;
+      --bg: #f6fbff;
+      --card-bg: #ffffff;
+      --card-radius: 16px;
+      --card-shadow: 0 18px 40px rgba(2,50,80,0.06);
+      --small-shadow: 0 10px 30px rgba(2,50,80,0.04);
+      --max-width: 1180px;
+    }
+
+    .about-section {
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      padding: 70px 20px 90px;
+      color: #0b1320;
+    }
+  /* NAV */
+    header{max-width:1400px;margin:20px auto;padding:6px 20px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700}
+    .badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(180deg,var(--accent),var(--accent-2));box-shadow:0 12px 36px rgba(0,186,195,0.12);font-weight:800}
+    nav ul{display:flex;gap:18px;align-items:center;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600;color:var(--deep)}
+    .nav-cta{padding:10px 16px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;box-shadow:0 16px 44px rgba(0,186,195,0.18)}
+    nav img.icon-nav{width:16px;height:16px;vertical-align:middle}
+
+    main{max-width:var(--maxw);margin:0 auto;padding:6px 20px 60px}
+
+
+    .about-wrap{
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .about-title{
+      text-align: center;
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .about-title span { color: var(--accent); }
+
+    .about-sub{
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 36px;
+      font-size: 15px;
+    }
+
+    /* top cards grid */
+    .about-cards{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+
+    .about-card{
+      background: var(--card-bg);
+      padding: 22px;
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      transition: transform .18s ease, box-shadow .18s ease;
+      min-height: 120px;
+    }
+    .about-card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 28px 60px rgba(2,50,80,0.08);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(0,194,255,0.12), rgba(0,194,255,0.06));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      box-shadow: var(--small-shadow);
+    }
+    .card-icon img{ width:34px; height:34px; display:block; }
+
+    .card-content h4{
+      margin:0;
+      font-size:18px;
+      font-weight:700;
+      color:#0b1320;
+    }
+    .card-content p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    /* big detailed box */
+    .about-detailed{
+      background: var(--card-bg);
+      padding: 26px;
+      border-radius: 18px;
+      box-shadow: 0 26px 70px rgba(2,50,80,0.06);
+    }
+    .about-detailed h5{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:700;
+    }
+    .about-detailed p, .about-detailed ol{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+      margin: 0 0 10px;
+    }
+    .about-detailed ol{ padding-left: 18px; }
+
+    /* responsive */
+    @media (max-width: 1000px){
+      .about-cards{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px){
+      .about-cards{ grid-template-columns: 1fr; }
+      .card-icon{ width:48px; height:48px; border-radius:12px; }
+    }
+/* 1) Saare link states se underline hata dena (high specificity) */
+header nav a,
+header nav a:visited,
+header nav a:hover,
+header nav a:active,
+header nav a:focus {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* 2) Nav links aur logo vertically center rakhna */
+header { display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:12px; line-height:1; }
+
+/* ensure badge doesn't shrink and centers correctly */
+.badge { flex: 0 0 44px; display:flex; align-items:center; justify-content:center; }
+
+/* 3) Agar link ke andar image hai to image ko inline-block/center karo
+   (underline aksar image baseline ki wajah se dikh jata hai) */
+nav a img.icon-nav,
+nav a img { display:inline-block; vertical-align:middle; }
+
+/* 4) Agar koi anchor ke underlines weirdly appear, force remove for inline elements */
+nav ul li { display:inline-flex; align-items:center; }
+nav ul li a { display:inline-flex; align-items:center; gap:8px; }
+
+/* 5) Extra: agar koi browser default ya external css override kar raha ho to */
+header nav a { text-decoration-skip-ink: none; } /* modern fix for weird underlines */
+
+  </style>
+<header>
+  <div class="logo">
+    <div class="badge">T</div> True 
+    <span style="color:var(--accent);margin-left:6px">Check AI</span>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li>
+        <a href="contact.html" style="display:flex;align-items:center;gap:8px;">
+          <img src="envelope.png" class="icon-nav">
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <div class="about-wrap">
+    <h2 class="about-title">About <span>TrueCheck AI</span></h2>
+    <p class="about-sub">A clean, structured and professional overview of how TrueCheck AI works.</p>
+
+    <div class="about-cards">
+      <article class="about-card">
+        <div class="card-icon"><img src="how.png" alt="how icon"></div>
+        <div class="card-content">
+          <h4>How Verification Works</h4>
+          <p>Our AI processes claims, checks source reliability, analyzes timelines, and generates transparency-based confidence scores.</p>
+        </div>
+      </article>
+
+      <article class="about-card">
+        <div class="card-icon"><img src="data.png"alt="data icon"></div>
+        <div class="card-content">
+          <h4>Data Sources</h4>
+          <p>Powered by trusted news outlets, fact-check databases, research publications, and curated global sources.</p>
+        </div>
+      </article>
+
+      <article class="about-card">
+        <div class="card-icon"><img src="privicy.png"alt="privacy icon"></div>
+        <div class="card-content">
+          <h4>Privacy First</h4>
+          <p>We do not store your submitted text or URLs. Verification happens securely and temporarily for processing only.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="about-detailed">
+      <h5>Detailed Breakdown</h5>
+      <p>Here is the complete end-to-end workflow used by TrueCheck AI:</p>
+      <ol>
+        <li><strong>Submission:</strong> You paste a URL or article text. Metadata is extracted.</li>
+        <li><strong>Claim Extraction:</strong> AI identifies factual claims, entities, and key details.</li>
+        <li><strong>Source Reputation Check:</strong> Publisher is compared with credible databases.</li>
+        <li><strong>Cross-Referencing:</strong> Claims checked against news APIs and official sources.</li>
+        <li><strong>Context Review:</strong> Timeline, outdated references, and reused assets are examined.</li>
+        <li><strong>Scoring:</strong> Transparent confidence score based on evidence strength.</li>
+        <li><strong>Human Review (Optional):</strong> High-risk claims may be escalated.</li>
+        <li><strong>Results:</strong> Clean verdict + evidence breakdown.</li>
+      </ol>
+    </div>
+  </div>
+</section>

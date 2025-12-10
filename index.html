@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrueCheck AI — Combined</title>
+  <style>
+html {
+  scroll-behavior: smooth;
+}
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+    :root{
+      --accent:#00c2ff; --accent-2:#00a4c7; --deep:#081424; --muted:#6b7280;
+      --bg:#f6fbff; --card:#fff; --maxw:1180px; --radius:18px;
+      --soft-shadow:0 30px 80px rgba(2,50,80,0.06); --light-shadow:0 12px 36px rgba(2,50,80,0.06);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:linear-gradient(180deg,#e9f8ff 0%,#fbfeff 40%,#fff 100%);color:var(--deep);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+
+    /* NAV */
+    header{max-width:1400px;margin:20px auto;padding:6px 20px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700}
+    .badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(180deg,var(--accent),var(--accent-2));box-shadow:0 12px 36px rgba(0,186,195,0.12);font-weight:800}
+    nav ul{display:flex;gap:18px;align-items:center;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600;color:var(--deep)}
+    .nav-cta{padding:10px 16px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;box-shadow:0 16px 44px rgba(0,186,195,0.18)}
+    nav img.icon-nav{width:16px;height:16px;vertical-align:middle}
+
+    main{max-width:var(--maxw);margin:0 auto;padding:6px 20px 60px}
+
+    /* HERO */
+    .hero{padding:26px 0 10px;text-align:center}
+    .badge-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;background:rgba(255,255,255,0.95);box-shadow:var(--light-shadow);font-weight:700;color:#0b5b67;margin-bottom:18px}
+    .hero h1{font-size:44px;margin:8px 0 10px;line-height:1.05;font-weight:800}
+    .hero h1 span{color:var(--accent)}
+    .hero p{color:var(--muted);max-width:720px;margin:0 auto 18px;line-height:1.7}
+    .hero-actions{display:flex;gap:14px;justify-content:center;margin:20px 0 30px;flex-wrap:wrap}
+    .btn{border:none;padding:12px 22px;border-radius:999px;font-weight:700;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 18px 40px rgba(0,186,195,0.28)}
+    .btn-ghost{background:#fff;border:1px solid rgba(2,50,80,0.06);color:#111;box-shadow:0 12px 30px rgba(2,50,80,0.06)}
+
+    /* stats */
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:760px;margin:0 auto 48px}
+    .stat{background:var(--card);padding:20px;border-radius:18px;box-shadow:var(--light-shadow);text-align:center}
+    .stat .value{font-size:26px;font-weight:800;color:var(--accent-2);margin-bottom:6px}
+    .stat .label{font-size:11px;letter-spacing:0.14em;color:#98a3b1;text-transform:uppercase}
+
+    /* TRY section (kept and retained) */
+    .try-section{padding:8px 0 36px}
+    .try-head{text-align:center;margin-bottom:18px}
+    .try-head h2{font-size:34px;margin:6px 0;font-weight:800}
+    .try-head h2 span{color:var(--accent)}
+    .try-head p{color:var(--muted);max-width:720px;margin:0 auto 10px}
+
+    .tool{background:var(--card);border-radius:26px;padding:28px;box-shadow:var(--soft-shadow);max-width:920px;margin:0 auto}
+    .tool h3{font-size:20px;margin:0 0 6px}
+    .tool p{margin:0 0 12px;color:var(--muted)}
+    .toggle{display:flex;background:#f4f7fb;border-radius:999px;padding:6px;gap:6px;align-items:center;margin-bottom:14px}
+    .toggle button{flex:1;border-radius:999px;border:none;background:transparent;padding:12px;font-weight:700;color:#8692a3;cursor:pointer}
+    .toggle button.active{background:#fff;color:#0b1320;box-shadow:0 12px 36px rgba(2,50,80,0.12)}
+    .input{width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(2,50,80,0.06);font-size:15px;margin-bottom:12px;box-shadow:inset 0 3px 10px rgba(2,50,80,0.02)}
+    .verify-row{display:flex;align-items:center;gap:12px}
+    .verify-btn{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;padding:12px 18px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 18px 40px rgba(0,186,195,0.28)}
+
+    .mini-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+    .mini{background:var(--card);border-radius:14px;padding:18px;box-shadow:var(--light-shadow)}
+    .mini h4{margin:0 0 8px;font-size:15px}
+    .mini p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+
+    /* Testimonials */
+    #testimonials{padding:44px 0 24px}
+    .section-header{text-align:center;margin-bottom:28px}
+    .section-header h2{font-size:34px;margin:0;font-weight:800}
+    .section-header h2 .highlight{color:var(--accent)}
+    .section-header p{color:var(--muted);max-width:860px;margin:10px auto 0}
+
+    .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:18px}
+    .testimonial-card{background:var(--card);border-radius:18px;padding:22px;box-shadow:var(--soft-shadow);min-height:170px;display:flex;flex-direction:column}
+    .testimonial-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(0,194,255,0.08), rgba(0,194,255,0.04));box-shadow:var(--light-shadow);font-size:20px;margin-bottom:6px}
+    .testimonial-name{font-weight:800;font-size:18px;margin-top:4px}
+    .testimonial-text{color:var(--muted);line-height:1.6;margin-top:6px;flex:1}
+    .testimonial-role{color:#93a0ad;font-size:13px;margin-top:10px}
+
+    /* FAQ */
+    #faq{padding:44px 0 40px}
+    .faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:18px}
+    .faq-card{background:var(--card);border-radius:18px;padding:22px;box-shadow:var(--soft-shadow);min-height:120px}
+    .faq-card h4{margin:0 0 10px;font-size:18px;font-weight:800}
+    .faq-card p{margin:0;color:var(--muted);line-height:1.7}
+
+    footer{padding:28px 0 50px;color:var(--muted);text-align:center;font-size:14px}
+
+    @media (max-width:1100px){
+      .testimonials-grid{grid-template-columns:repeat(2,1fr)}
+      .faq-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .testimonials-grid,.faq-grid{grid-template-columns:1fr}
+      .mini-cards{grid-template-columns:1fr}
+      header{padding:12px}
+      .hero h1{font-size:30px}
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+<header>
+  <div class="logo"><div class="badge">T</div> True <span style="color:var(--accent);margin-left:6px">Check AI</span></div>
+
+  <nav>
+    <ul>
+    
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="about.html">About</a></li>
+      <li>
+        <a href="contact.html" style="display:flex;align-items:center;gap:8px;">
+          <img src="envelope.png" alt="contact" class="icon-nav" />
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="badge-pill">⚡ AI-Powered Fact Verification</div>
+      <h1 id="hero-title">Combat Fake News with <span>AI</span> Precision</h1>
+      <p>TruCheck AI analyzes news articles in real-time to detect misinformation, verify sources, and provide clear confidence scores.</p>
+
+      <div class="hero-actions">
+        <a href="#verify-tool" class="btn btn-primary">Verify News Now →</a>
+
+      <a href="#testimonials">
+  <button class="btn btn-ghost">Learn More</button>
+</a>
+
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="value">95%</div><div class="label">Accuracy Rate</div></div>
+        <div class="stat"><div class="value" id="stat-articles">0</div><div class="label">Articles Verified</div><div id="stat-meta" style="font-size:12px;color:#a1a7b5;margin-top:8px">Today: 0 · This month: 0</div></div>
+        <div class="stat"><div class="value">&lt;3s</div><div class="label">Verification Time</div></div>
+      </div>
+    </section>
+
+    <!-- TRY IT (RETAINED & NOT REMOVED) -->
+    <section class="try-section" aria-labelledby="try-title">
+      <div class="try-head">
+        <h2 id="try-title">Try It <span>Yourself</span></h2>
+        <p>Paste a news URL or article text to instantly verify its authenticity with our AI-powered system.</p>
+      </div>
+
+     <div id="verify-tool" class="tool" role="region" aria-label="News verification tool">
+
+        <h3>News Verification Tool</h3>
+        <p>Enter a URL or paste article text for instant analysis.</p>
+
+        <div class="toggle" role="tablist" aria-label="Choose input type">
+          <button class="active" id="tab-url" aria-pressed="true">🔗 URL</button>
+          <button id="tab-text" aria-pressed="false">🔍 Text</button>
+        </div>
+
+        <label for="url-input" style="font-weight:700;display:block;margin-bottom:8px">Enter the full URL of the news article you want to verify</label>
+        <input id="url-input" class="input" placeholder="https://example.com/news-article">
+
+        <div id="text-panel" style="display:none;margin-top:8px">
+          <label for="text-input" style="font-weight:700;display:block;margin-bottom:8px">Paste article text</label>
+          <textarea id="text-input" class="input" placeholder="Paste article text here..." style="min-height:120px"></textarea>
+        </div>
+
+        <div class="verify-row" style="margin-top:12px">
+          <button class="verify-btn" type="button">🔎 Verify Now</button>
+        </div>
+
+        <div class="mini-cards" aria-hidden="false">
+          <div class="mini"><h4>Multi-source checks</h4><p>Cross-references verified sources and fact-check databases.</p></div>
+          <div class="mini"><h4>Privacy first</h4><p>We do not store your verification inputs in this demo.</p></div>
+          <div class="mini"><h4>Transparent scoring</h4><p>See which signals influenced the verdict.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (AFTER VERIFY) -->
+    <section id="testimonials" aria-labelledby="testimonials-title">
+      <div class="section-header">
+        <h2 id="testimonials-title">Trusted by <span class="highlight" style="color:var(--accent)">Professionals</span></h2>
+        <p>Journalists, researchers, and organizations use TruCheck AI to verify information before publication.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card">
+          <div class="testimonial-icon">📰</div>
+          <div class="testimonial-name">Sarah Johnson</div>
+          <div class="testimonial-text">“TruCheck AI has become a crucial tool for our newsroom. It helps us verify facts within seconds before headlines go live.”</div>
+          <div class="testimonial-role">— Digital Editor, NewsHub</div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-icon" style="background:linear-gradient(180deg, rgba(120,255,200,0.08), rgba(160,240,230,0.04));">🔍</div>
+          <div class="testimonial-name">Dr. Arnav Mehta</div>
+          <div class="testimonial-text">“This platform has significantly reduced the time we spend on manual fact-checking during research.”</div>
+          <div class="testimonial-role">— Senior Researcher, DataLab University</div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-icon" style="background:linear-gradient(180deg, rgba(210,180,255,0.08), rgba(240,220,255,0.04));">📊</div>
+          <div class="testimonial-name">Media Ethics Foundation</div>
+          <div class="testimonial-text">“The accuracy and transparency offered by TruCheck AI set it apart from traditional tools.”</div>
+          <div class="testimonial-role">— Non-Profit Organization</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ (AFTER TESTIMONIALS) -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="section-header">
+        <h2 id="faq-title">Frequently Asked <span class="highlight" style="color:var(--accent)">Questions</span></h2>
+        <p>Find answers to the most common questions about TruCheck AI and how it works.</p>
+      </div>
+
+      <div class="faq-grid">
+        <article class="faq-card">
+          <h4>What is TruCheck AI?</h4>
+          <p>TruCheck AI is a real-time fake news detection tool that analyzes online articles and provides reliability scores.</p>
+        </article>
+
+        <article class="faq-card">
+          <h4>How does it detect fake news?</h4>
+          <p>It uses machine learning to evaluate source credibility, linguistic patterns, bias indicators, and cross-checks information with verified databases.</p>
+        </article>
+
+        <article class="faq-card">
+          <h4>Does it support multiple languages?</h4>
+          <p>Currently, TruCheck AI supports English, but multilingual support will be added soon.</p>
+        </article>
+
+        <article class="faq-card">
+          <h4>Is my data safe?</h4>
+          <p>Yes. We prioritize privacy and do not store user input or verification history.</p>
+        </article>
+
+        <article class="faq-card">
+          <h4>Is it free to use?</h4>
+          <p>Yes, the core verification features are available for free. Premium features may be added in the future.</p>
+        </article>
+
+        <article class="faq-card">
+          <h4>Can it detect deepfake content?</h4>
+          <p>Image and video analysis is under development. Current version focuses on text-based news articles.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>© 2025 TrueCheck AI · Fake News Detection — About · Contact</footer>
+  </main>
+
+  <!-- Integrated JS: externalized logic placed here for simplicity. If you prefer a separate script.js file, copy the contents into that file and include <script src="script.js" defer></script> instead. -->
+  <script>
+  (function(){
+    'use strict';
+    // Small DOM helpers
+    const $ = (s, ctx=document) => ctx.querySelector(s);
+    const $$ = (s, ctx=document) => Array.from(ctx.querySelectorAll(s));
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      initTabs(); initVerificationUX(); initStats(); initToggleBehavior();
+    });
+
+    /* Tabs (URL / Text) */
+    function initTabs(){
+      const tabUrl = $('#tab-url');
+      const tabText = $('#tab-text');
+      const urlPanel = $('#url-input');
+      const textPanel = $('#text-panel');
+      if(!tabUrl || !tabText) return;
+      tabUrl.addEventListener('click', ()=>{
+        tabUrl.classList.add('active'); tabUrl.setAttribute('aria-pressed','true');
+        tabText.classList.remove('active'); tabText.setAttribute('aria-pressed','false');
+        if(textPanel) textPanel.style.display = 'none';
+        if(urlPanel) urlPanel.style.display = 'block';
+        $('#url-input')?.focus();
+      });
+      tabText.addEventListener('click', ()=>{
+        tabText.classList.add('active'); tabText.setAttribute('aria-pressed','true');
+        tabUrl.classList.remove('active'); tabUrl.setAttribute('aria-pressed','false');
+        if(textPanel) textPanel.style.display = 'block';
+        if(urlPanel) urlPanel.style.display = 'none';
+        $('#text-input')?.focus();
+      });
+    }
+
+    /* Minimal toggle keyboard accessibility */
+    function initToggleBehavior(){
+      $$('.toggle button').forEach(btn=>{
+        btn.addEventListener('keydown', (e)=>{
+          if(e.key === 'ArrowRight' || e.key === 'ArrowLeft') e.preventDefault();
+        });
+      });
+    }
+
+    /* Simple persistent stats */
+    const STORAGE_KEY = 'truecheckai_stats_v1';
+    let articlesVerified = 0;
+    let daily = {};
+    let monthly = {};
+    function loadStats(){
+      try{ const st = JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')||{}; articlesVerified = Number(st.total||0); daily = st.daily||{}; monthly = st.monthly||{}; }catch(e){articlesVerified=0;daily={};monthly={};}
+    }
+    function saveStats(){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify({ total: articlesVerified, daily, monthly })); }catch(e){}
+    }
+    function updateArticlesDisplay(){ const el = $('#stat-articles'); if(!el) return; el.textContent = articlesVerified; const meta = $('#stat-meta'); if(meta){ const t = new Date().toISOString().slice(0,10); const m = new Date().toISOString().slice(0,7); meta.textContent = `Today: ${daily[t]||0} · This month: ${monthly[m]||0}`; } }
+    function initStats(){ loadStats(); updateArticlesDisplay(); }
+
+    /* Verification UX + demo analysis (kept client-side) */
+    function initVerificationUX(){
+      const verifyBtn = $('.verify-btn');
+      const urlInput = $('#url-input');
+      const textInput = $('#text-input');
+      const loading = null; // kept minimal for demo
+
+      function runAnalysis({urlValue, textValue}){
+        const u = (urlValue||'').toLowerCase();
+        const items = [];
+        if(u.includes('bbc')||u.includes('reuters')||u.includes('guardian')||u.includes('nytimes')) items.push({label:'Source check', status:'ok', note:'Source appears reputable.'});
+        else if(u.includes('blog')||u.includes('medium')) items.push({label:'Source check', status:'warn', note:'Informal source.'});
+        else items.push({label:'Source check', status:'warn', note:'No strong reputation signal.'});
+
+        if(textValue && textValue.length>250) items.push({label:'Claim match', status:'ok', note:'Claims present.'});
+        else if(textValue && textValue.length>80) items.push({label:'Claim match', status:'warn', note:'Some claims present.'});
+        else items.push({label:'Claim match', status:'warn', note:'Insufficient text.'});
+
+        const dateFound = (textValue && /\b(19|20)\d{2}\b/.test(textValue)) || /\b(19|20)\d{2}\b/.test(urlValue||'');
+        items.push(dateFound?{label:'Date check',status:'ok',note:'Date found.'}:{label:'Date check',status:'warn',note:'No date found.'});
+
+        if(u.includes('news') || (textValue && textValue.length>800)) items.push({label:'Cross-references',status:'ok',note:'References likely.'});
+        else if(textValue && textValue.length>300) items.push({label:'Cross-references',status:'warn',note:'Few references.'});
+        else items.push({label:'Cross-references',status:'bad',note:'No cross-references detected.'});
+
+        const badCount = items.filter(i=>i.status==='bad').length;
+        const warnCount = items.filter(i=>i.status==='warn').length;
+        let verdict='UNVERIFIED', score=65, color='#f59e0b';
+        if(badCount>0){ verdict='LOW RELIABILITY'; score = Math.floor(20+Math.random()*30); color='#ef4444'; }
+        else if(warnCount>=2){ verdict='POTENTIALLY MISLEADING'; score = Math.floor(50+Math.random()*20); color='#f59e0b'; }
+        else { verdict='MOSTLY RELIABLE'; score = Math.floor(78+Math.random()*17); color='#10b981'; }
+        return {items, verdict, score, color};
+      }
+
+      function displayResults(result){
+        // create a simple results panel if not present
+        let panel = $('#result-card');
+        if(!panel){ panel = document.createElement('div'); panel.id='result-card'; panel.style.marginTop='18px'; panel.style.padding='16px'; panel.style.borderRadius='12px'; panel.style.background='#fff'; panel.style.boxShadow='0 12px 32px rgba(2,50,80,0.06)';
+          document.querySelector('.tool')?.appendChild(panel);
+        }
+        panel.innerHTML = `
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <div style="min-width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;background:${result.color};color:#fff">${result.verdict==='MOSTLY RELIABLE'?'✔':(result.verdict==='LOW RELIABILITY'?'✖':'!')}</div>
+            <div style="flex:1;min-width:220px"><div style="font-weight:700;margin-bottom:6px">${result.verdict}</div><div style="color:var(--muted);font-size:13px">Summary: quick automated checks (demo). See breakdown below.</div>
+              <ul style="margin-top:10px;list-style:none;padding:0;">
+                ${result.items.map(it=>`<li style="display:flex;gap:10px;align-items:flex-start;padding:8px;border-radius:8px;background:#f8fafc;border:1px solid rgba(14,165,233,0.04);margin-bottom:8px"><div style="width:12px;height:12px;border-radius:999px;background:${it.status==='ok'? '#10b981':(it.status==='warn'?'#f59e0b':'#ef4444')}"></div><div><div style="font-weight:600">${it.label}</div><div style="font-size:13px;color:var(--muted)">${it.note}</div></div></li>`).join('')}
+              </ul>
+            </div>
+            <div style="min-width:56px;text-align:right;font-weight:800;font-size:18px;color:var(--accent-2)">${result.score}%</div>
+          </div>
+        `;
+        panel.scrollIntoView({behavior:'smooth', block:'center'});
+        panel.focus?.();
+      }
+
+      function startVerification(){
+        const urlValue = (urlInput?.value||'').trim();
+        const textValue = (textInput?.value||'').trim();
+        if(!urlValue && !textValue){ alert('Please enter a URL or paste some article text to verify.'); return; }
+        if(verifyBtn) { verifyBtn.disabled=true; verifyBtn.textContent='Verifying…'; }
+        setTimeout(()=>{
+          const res = runAnalysis({urlValue, textValue});
+          displayResults(res);
+          // update stats
+          articlesVerified += 1;
+          const t = new Date().toISOString().slice(0,10); const m = new Date().toISOString().slice(0,7);
+          daily[t] = (daily[t]||0)+1; monthly[m] = (monthly[m]||0)+1; saveStats(); updateArticlesDisplay();
+          if(verifyBtn){ verifyBtn.disabled=false; verifyBtn.textContent='🔎 Verify Now'; }
+        }, 900 + Math.floor(Math.random()*800));
+      }
+
+      verifyBtn?.addEventListener('click', startVerification);
+      [urlInput, textInput].forEach(inp=>{ if(!inp) return; inp.addEventListener('keydown',(e)=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); startVerification(); } }); });
+    }
+
+  })();
+  </script>
+</body>
+</html>

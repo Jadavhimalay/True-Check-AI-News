@@ -1,0 +1,218 @@
+<!-- Replace your current "How it works" section with this -->
+<section class="how-section">
+  <style>
+    :root{
+      --accent: #00c2ff;
+      --muted: #6b7280;
+      --bg: #f6fbff;
+      --card-shadow: 0 20px 50px rgba(2,50,80,0.06);
+      --circle-bg: radial-gradient(circle at 30% 30%, rgba(0,194,255,0.12), rgba(0,194,255,0.06));
+      --max-width: 1200px;
+    }
+
+    /* optional font - keep if you use Inter like left design */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+  /* NAV */
+    header{max-width:1400px;margin:20px auto;padding:6px 20px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700}
+    .badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(180deg,var(--accent),var(--accent-2));box-shadow:0 12px 36px rgba(0,186,195,0.12);font-weight:800}
+    nav ul{display:flex;gap:18px;align-items:center;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600;color:var(--deep)}
+    .nav-cta{padding:10px 16px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;box-shadow:0 16px 44px rgba(0,186,195,0.18)}
+    nav img.icon-nav{width:16px;height:16px;vertical-align:middle}
+
+    main{max-width:var(--maxw);margin:0 auto;padding:6px 20px 60px}
+
+    .how-section{
+      font-family: 'Inter', sans-serif;
+      background: white;
+      padding: 70px 20px 90px;
+      color: #0b1320;
+      text-align: center;
+    }
+
+    .how-section .container{
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .how-title{
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .how-title span { color: var(--accent); }
+
+    .how-sub {
+      color: var(--muted);
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+
+    /* grid */
+    .how-grid{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* single step card (but mostly visual - no heavy border) */
+    .how-step{
+      text-align: center;
+      padding-top: 6px;
+    }
+
+    .step-circle {
+      width: 120px;
+      height: 120px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--circle-bg);
+      box-shadow: 0 12px 40px rgba(2,50,80,0.06);
+      margin-bottom: 18px;
+      position: relative;
+      transition: transform .25s ease;
+    }
+    .step-circle img{
+      width: 54px;
+      height: 54px;
+      display:block;
+      filter: drop-shadow(0 6px 18px rgba(2,50,80,0.04));
+    }
+    .how-step:hover .step-circle{ transform: translateY(-6px); }
+
+    .step-num{
+      display:block;
+      font-weight:700;
+      color:#9aa3b2;
+      margin-bottom:6px;
+      font-size:18px;
+      letter-spacing:1px;
+    }
+
+    .step-title{
+      font-weight:700;
+      font-size:18px;
+      margin-bottom:8px;
+      color:#0b1320;
+    }
+    .step-desc{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* small screens */
+    @media (max-width: 1000px){
+      .how-grid{ grid-template-columns: repeat(2, 1fr); gap: 28px; }
+      .step-desc{ max-width: 240px; }
+    }
+    @media (max-width: 520px){
+      .how-grid{ grid-template-columns: 1fr; gap: 20px; }
+      .step-circle{ width: 96px; height: 96px; }
+      .step-circle img{ width:44px; height:44px; }
+    }
+/* 1) Saare link states se underline hata dena (high specificity) */
+header nav a,
+header nav a:visited,
+header nav a:hover,
+header nav a:active,
+header nav a:focus {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* 2) Nav links aur logo vertically center rakhna */
+header { display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:12px; line-height:1; }
+
+/* ensure badge doesn't shrink and centers correctly */
+.badge { flex: 0 0 44px; display:flex; align-items:center; justify-content:center; }
+
+/* 3) Agar link ke andar image hai to image ko inline-block/center karo
+   (underline aksar image baseline ki wajah se dikh jata hai) */
+nav a img.icon-nav,
+nav a img { display:inline-block; vertical-align:middle; }
+
+/* 4) Agar koi anchor ke underlines weirdly appear, force remove for inline elements */
+nav ul li { display:inline-flex; align-items:center; }
+nav ul li a { display:inline-flex; align-items:center; gap:8px; }
+
+/* 5) Extra: agar koi browser default ya external css override kar raha ho to */
+header nav a { text-decoration-skip-ink: none; } /* modern fix for weird underlines */
+
+  </style>
+<header>
+  <div class="logo">
+    <div class="badge">T</div> True 
+    <span style="color:var(--accent);margin-left:6px">Check AI</span>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="about.html">About</a></li>
+      <li>
+        <a href="contact.html" style="display:flex;align-items:center;gap:8px;">
+          <img src="envelope.png"class="icon-nav">
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <div class="container">
+    <h2 class="how-title">How It <span>Works</span></h2>
+    <p class="how-sub">Our AI-powered verification process is simple, fast, and accurate.</p>
+
+    <div class="how-grid">
+      <div class="how-step">
+        <span class="step-num">01</span>
+        <div class="step-circle">
+          <img src="submit.png" alt="submit icon">
+        </div>
+        <div class="step-title">Submit Content</div>
+        <div class="step-desc">Enter a news URL or paste article text into our verification tool.</div>
+      </div>
+
+      <div class="how-step">
+        <span class="step-num">02</span>
+        <div class="step-circle">
+          <img src="ai.png"alt="ai icon">
+        </div>
+        <div class="step-title">AI Analysis</div>
+        <div class="step-desc">Our AI analyzes content, checks sources, and cross-references with verified databases.</div>
+      </div>
+
+      <div class="how-step">
+        <span class="step-num">03</span>
+        <div class="step-circle">
+          <img src="check.png"alt="check icon">
+        </div>
+        <div class="step-title">Get Results</div>
+        <div class="step-desc">Receive a detailed verdict with confidence scores, source verification, and concern flags.</div>
+      </div>
+
+      <div class="how-step">
+        <span class="step-num">04</span>
+        <div class="step-circle">
+          <img src="chart.png"alt="chart icon">
+        </div>
+        <div class="step-title">Make Informed Decisions</div>
+        <div class="step-desc">Use the insights to determine whether to trust, share, or investigate further.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

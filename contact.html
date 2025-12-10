@@ -1,0 +1,315 @@
+<!-- Paste this where your Contact + Feedback sections should appear -->
+<section class="merged-contact-feedback">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+    :root{
+      --accent: #00c2ff;
+      --accent-dark: #00aabf;
+      --muted: #6b7280;
+      --bg: #f6fbff;
+      --card-bg: #ffffff;
+      --card-radius: 18px;
+      --card-shadow: 0 30px 80px rgba(2,50,80,0.06);
+      --soft-shadow: 0 18px 40px rgba(2,50,80,0.04);
+      --max-width: 1100px;
+    }
+
+    .merged-contact-feedback{
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, rgba(246,251,255,1) 0%, rgba(250,253,255,1) 100%);
+      padding: 70px 20px 90px;
+      color: #0b1320;
+    }
+  /* NAV */
+    header{max-width:1400px;margin:20px auto;padding:6px 20px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700}
+    .badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(180deg,var(--accent),var(--accent-2));box-shadow:0 12px 36px rgba(0,186,195,0.12);font-weight:800}
+    nav ul{display:flex;gap:18px;align-items:center;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600;color:var(--deep)}
+    .nav-cta{padding:10px 16px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;box-shadow:0 16px 44px rgba(0,186,195,0.18)}
+    nav img.icon-nav{width:16px;height:16px;vertical-align:middle}
+
+    main{max-width:var(--maxw);margin:0 auto;padding:6px 20px 60px}
+
+
+    .mf-container{
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Heading */
+    .mf-head{
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .mf-title{
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .mf-title span{ color: var(--accent); }
+    .mf-sub{
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* Main grid: left contact box, right form (on wide screens) */
+    .mf-grid{
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 30px;
+      margin-top: 36px;
+      align-items: start;
+    }
+
+    /* Contact card (left) */
+    .contact-card{
+      background: var(--card-bg);
+      padding: 26px;
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      position: relative;
+    }
+    .contact-card .mini-icon{
+      width: 62px;
+      height: 62px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(250,253,255,0.85));
+      box-shadow: var(--soft-shadow);
+      margin: -48px 0 12px 14px;
+    }
+    .contact-card .mini-icon img{ width:34px; height:34px; display:block; }
+
+    .contact-list{
+      margin-top: 6px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 15px;
+    }
+    .contact-list .line{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-bottom:10px;
+    }
+    .contact-list img.icon-small{
+      width:18px; height:18px; display:block; filter: none;
+    }
+
+    /* Form card (right) */
+    .form-card{
+      background: var(--card-bg);
+      padding: 28px;
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+    }
+
+    .form-row{ margin-bottom: 16px; }
+    label{ display:block; font-weight:600; margin-bottom:8px; color:#0b1320; }
+    input[type="text"], input[type="email"], textarea{
+      width:100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(2,50,80,0.06);
+      background: #fff;
+      font-size: 14px;
+      color: #0b1320;
+      box-shadow: 0 3px 10px rgba(2,50,80,0.02) inset;
+      resize: vertical;
+    }
+    textarea{ min-height:140px; }
+
+    .checkbox-row{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--muted);
+      margin: 8px 0 18px;
+      font-size:14px;
+    }
+
+    /* Submit button (teal pill) */
+    .btn-row{ text-align:right; }
+    .btn-primary{
+      display:inline-block;
+      background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+      color:white;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight:700;
+      box-shadow: 0 12px 30px rgba(0,186,195,0.26);
+      border:none;
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn-primary:hover{ transform: translateY(-3px); box-shadow: 0 22px 50px rgba(0,186,195,0.22); }
+
+    /* Footer tiny card below (full width) */
+    .mf-footer-card{
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: var(--soft-shadow);
+      margin-top: 34px;
+    }
+    .mf-footer-card p{ margin:0; color:var(--muted); font-size:14px; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .mf-grid{ grid-template-columns: 1fr; }
+      .contact-card .mini-icon{ margin-left: 0; }
+    }
+/* 1) Saare link states se underline hata dena (high specificity) */
+header nav a,
+header nav a:visited,
+header nav a:hover,
+header nav a:active,
+header nav a:focus {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* 2) Nav links aur logo vertically center rakhna */
+header { display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:12px; line-height:1; }
+
+/* ensure badge doesn't shrink and centers correctly */
+.badge { flex: 0 0 44px; display:flex; align-items:center; justify-content:center; }
+
+/* 3) Agar link ke andar image hai to image ko inline-block/center karo
+   (underline aksar image baseline ki wajah se dikh jata hai) */
+nav a img.icon-nav,
+nav a img { display:inline-block; vertical-align:middle; }
+
+/* 4) Agar koi anchor ke underlines weirdly appear, force remove for inline elements */
+nav ul li { display:inline-flex; align-items:center; }
+nav ul li a { display:inline-flex; align-items:center; gap:8px; }
+
+/* 5) Extra: agar koi browser default ya external css override kar raha ho to */
+header nav a { text-decoration-skip-ink: none; } /* modern fix for weird underlines */
+
+
+/* -----------------------------
+   Success box (NO-JS feedback)
+   ----------------------------- */
+#fb-success {
+  display: none;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #d1fae5;
+  border: 1px solid #10b981;
+  color: #065f46;
+  font-weight: 700;
+  animation: fadeIn 0.35s ease;
+}
+
+/* Show only when fragment matches #fb-success */
+:target#fb-success {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+<header>
+  <div class="logo">
+    <div class="badge">T</div> True 
+    <span style="color:var(--accent);margin-left:6px">Check AI</span>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="about.html">About</a></li>
+      <li>
+        
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <div class="mf-container">
+    <div class="mf-head">
+      <h2 class="mf-title"><span>📧</span> Contact</h2>
+      <p class="mf-sub">Get in touch with us for support, queries, or collaboration.</p>
+    </div>
+
+    <div class="mf-grid">
+      <!-- LEFT: Contact Info -->
+      <aside class="contact-card" aria-label="Contact information">
+        <div class="mini-icon" title="Contact">
+          <img src="contact.png" alt="envelope icon">
+        </div>
+
+        <div style="margin-top:6px;">
+          <div style="font-weight:700; font-size:16px; margin-bottom:6px;">Office</div>
+
+          <div class="contact-list">
+            <div class="line"><img class="icon-small" src="pin.png" alt="pin"> Ganpat University - Kherva, Mehsana</div>
+            <div class="line"><img class="icon-small" src="phone.png"alt="phone"> +91 9265939889</div>
+            <div class="line"><img class="icon-small" src="mail.png"alt="mail"> himalayshih48@gmail.com</div>
+          </div>
+        </div>
+      </aside>
+
+     <div class="form-card">
+
+  <!-- NEW FEEDBACK FORM HEADING -->
+  <div class="mf-head" style="margin-bottom: 20px;">
+    <h2 class="mf-title" style="font-size:30px;">
+      <img src="feedback.png" style="width:32px; vertical-align:middle; margin-right:6px;" alt="feedback">
+      Feedback Form
+    </h2>
+    <p class="mf-sub" style="font-size:14px;">
+      Share your thoughts to help us improve TruCheck AI.
+    </p>
+  </div>
+
+ 
+  <form id="feedbackForm" method="get" action="#fb-success">
+    <div class="form-row">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" placeholder="Your name">
+    </div>
+
+    <div class="form-row">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com">
+    </div>
+
+    <div class="form-row">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="How can we help?"></textarea>
+    </div>
+
+    <div class="checkbox-row">
+      <input id="consent" name="consent" type="checkbox">
+      <label for="consent" style="margin:0; font-weight:400;">I agree to be contacted regarding my feedback.</label>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-primary" type="submit">Send Feedback</button>
+    </div>
+  </form>
+
+  <div id="fb-success">
+    ✅ Submission complete — thank you for your feedback!
+  </div>
+</div>
+
+    <div class="mf-footer-card" style="margin-top:34px;">
+      <p>© 2025 TrueCheck AI · <a href="#" style="color:var(--accent); text-decoration:none;">Contact</a></p>
+    </div>
+  </div>
+</section>

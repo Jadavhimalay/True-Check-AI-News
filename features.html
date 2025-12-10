@@ -1,0 +1,168 @@
+<section class="features-section">
+
+  <style>
+  /* NAV */
+    header{max-width:1400px;margin:20px auto;padding:6px 20px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700}
+    .badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(180deg,var(--accent),var(--accent-2));box-shadow:0 12px 36px rgba(0,186,195,0.12);font-weight:800}
+    nav ul{display:flex;gap:18px;align-items:center;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600;color:var(--deep)}
+    .nav-cta{padding:10px 16px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;box-shadow:0 16px 44px rgba(0,186,195,0.18)}
+    nav img.icon-nav{width:16px;height:16px;vertical-align:middle}
+
+    main{max-width:var(--maxw);margin:0 auto;padding:6px 20px 60px}
+
+    .features-section {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f6fbff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .features-section .title {
+      font-size: 40px;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .features-section .title span {
+      color: #00c2ff;
+    }
+
+    .features-section .subtitle {
+      color: #555;
+      margin-bottom: 40px;
+      font-size: 18px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      padding: 25px 30px;
+      border-radius: 18px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.06);
+      transition: 0.3s ease;
+      text-align: left;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature-card .icon {
+      width: 45px;
+      height: 45px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: #555;
+      line-height: 1.5;
+    }
+/* 1) Saare link states se underline hata dena (high specificity) */
+header nav a,
+header nav a:visited,
+header nav a:hover,
+header nav a:active,
+header nav a:focus {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* 2) Nav links aur logo vertically center rakhna */
+header { display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:12px; line-height:1; }
+
+/* ensure badge doesn't shrink and centers correctly */
+.badge { flex: 0 0 44px; display:flex; align-items:center; justify-content:center; }
+
+/* 3) Agar link ke andar image hai to image ko inline-block/center karo
+   (underline aksar image baseline ki wajah se dikh jata hai) */
+nav a img.icon-nav,
+nav a img { display:inline-block; vertical-align:middle; }
+
+/* 4) Agar koi anchor ke underlines weirdly appear, force remove for inline elements */
+nav ul li { display:inline-flex; align-items:center; }
+nav ul li a { display:inline-flex; align-items:center; gap:8px; }
+
+/* 5) Extra: agar koi browser default ya external css override kar raha ho to */
+header nav a { text-decoration-skip-ink: none; } /* modern fix for weird underlines */
+
+  </style>
+<header>
+  <div class="logo">
+    <div class="badge">T</div> True 
+    <span style="color:var(--accent);margin-left:6px">Check AI</span>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="about.html">About</a></li>
+      <li>
+        <a href="contact.html" style="display:flex;align-items:center;gap:8px;">
+          <img src="envelope.png"class="icon-nav">
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <h2 class="title">Powerful <span>Features</span></h2>
+  <p class="subtitle">All tools you need to fight misinformation.</p>
+
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <img src="verify.png"class="icon">
+      <h3>AI-Powered Verification</h3>
+      <p>Machine learning analyzes claims, entities, and patterns to flag likely misinformation.</p>
+    </div>
+
+    <div class="feature-card">
+      <img src="cross.png"class="icon">
+      <h3>Multi-Source Cross-Referencing</h3>
+      <p>We cross-check against trusted news outlets and fact-checking databases.</p>
+    </div>
+
+    <div class="feature-card">
+      <img src="confidence.png" class="icon">
+      <h3>Confidence Scoring</h3>
+      <p>Transparent scoring shows why an article is trusted or flagged.</p>
+    </div>
+
+    <div class="feature-card">
+      <img src="flash.png"class="icon">
+      <h3>Real-Time Analysis</h3>
+      <p>Fast verification for journalists and social media workflows.</p>
+    </div>
+
+    <div class="feature-card">
+      <img src="privacy.png"class="icon">
+      <h3>Privacy First</h3>
+      <p>Temporary client-side checks. Production never stores inputs.</p>
+    </div>
+
+    <div class="feature-card">
+      <img src="database.png"class="icon">
+      <h3>Data Sources</h3>
+      <p>Trusted publications and curated lists power evidence lookups.</p>
+    </div>
+
+  </div>
+</section>
