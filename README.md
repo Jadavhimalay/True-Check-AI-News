@@ -33,10 +33,13 @@ True Check AI News is a web-based application that helps users verify whether a 
 
 ## ▶️ How to Run
 1. Clone the repository  
-   ```bash
-   git clone https://github.com/Jadavhimalay/True-Check-AI-News.git
+   ```bash 
+   git clone  https://github.com/Jadavhimalay/True-Check-AI-News.git
+   ```
 2. Open the project folder
-3. Run index.html in your browser
+3. Run `index.html` in your browser
+
+---
    ## 📌 Future Improvements
 - 🤖 Add real AI/ML model or API  
 - 🎨 Improve UI/UX design  
